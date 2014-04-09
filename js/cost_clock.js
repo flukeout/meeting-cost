@@ -1,8 +1,13 @@
 $(function(){
   var clock, startDate, lastDate;
   var personMliliseconds = 0;
-  var costPerMilisecond = 0.015 / 1000;
-
+  
+   
+  function setSalary() { 
+  	// Yes, I realise I * 1000 then / 1000
+	  return $('#salary input').val() * 1000 / 46 / 5 / 7.5 / 60 / 60 / 1000;
+  }
+  
   function startClock() {
     startDate = lastDate = new Date();
     clock = setInterval(counter, 10);
@@ -52,7 +57,7 @@ $(function(){
   }
 
   $('#plus').click(function(){
-    $('#peeps').append('<li/>');
+    $('#peeps').append('<li><span class="glyphicon glyphicon-user"></span></li>');
     if (!clock) { startClock(); }
   });
 
@@ -61,5 +66,12 @@ $(function(){
       $('#peeps li').last().remove();
     }
   });
+  
+  $('#salary input').change( function() {
+  	costPerMilisecond = setSalary();
+  }); 
+ 
+  var costPerMilisecond = setSalary();  
+ 
 
 });

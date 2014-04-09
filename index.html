@@ -1,19 +1,83 @@
 <html>
 <head>
-  <title>Cost Clock</title>
-  <link rel="stylesheet" href="stylesheets/main.css" type="text/css" media="all" charset="utf-8">
-  <script src="javascripts/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="javascripts/cost_clock.js" type="text/javascript" charset="utf-8"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Meeting Cost</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/main.css" rel="stylesheet" type="text/css"><!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/cost_clock.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
 </head>
+
 <body>
-  <div id="controls">
-    <div id="minus">-</div>
-    <div id="plus">+</div>
-    <ul id="peeps"></ul>
-  </div>
-  <div id="cost">
-    $<span id="dollarValue">0.00</span>
-  </div>
-  <div id="elapsedTime"></div>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="masthead clearfix">
+                    <div class="inner">
+                        <h3 class="masthead-brand">Meeting Cost</h3>
+
+                        <ul class="nav masthead-nav">
+                            <li class="active"><a href="#" onclick="$('#cost').toggle(); $('#config').toggle(); $('ul.nav li').removeClass('active'); $(this).parent().addClass('active');">Cost</a></li>
+
+                            <li><a href="#" onclick="$('#cost').toggle(); $('#config').toggle();  $('ul.nav li').removeClass('active'); $(this).parent().addClass('active');">Config</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="inner cover">
+                    <div id="cost">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <button id="minus" class="btn btn-default"></button>
+                            </div>
+
+                            <div class="col-md-10">
+                                <ul id="peeps"></ul>
+                            </div>
+
+                            <div class="col-md-1">
+                                <div class="clearfix"></div><button id="plus" class="btn btn-default"></button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <h1 class="cover-heading">$<span id="dollarValue">0.00</span></h1>
+
+                            <p class="lead"></p>
+
+                            <div id="elapsedTime">
+                                &nbsp;
+                            </div>
+                            <p>
+                        </div>
+                    </div>
+
+                    <div id="config" style="display: none;">
+                        <div id="salary">
+                            <p class="lead">Average salary $<input type="number" value="50" class="form-control input-lg">k</p>
+                        </div>
+                    </div>
+
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p>by <a href="https://twitter.com/hellodaniel">@hellodaniel</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
